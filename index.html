@@ -3,403 +3,307 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagar Offshore Maritime Academy</title>
+  <title>Sagar Offshore Maritime Academy | Premium Maritime Training</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:#f5f8fb;color:#102033}
+    a{text-decoration:none}
+    .topbar{background:#03111f;color:#dce8f3;padding:10px 7%;font-size:14px;display:flex;justify-content:space-between;gap:20px}
+    header{background:rgba(6,26,45,.96);backdrop-filter:blur(12px);padding:18px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+    .logo{color:#d4af37;font-size:24px;font-weight:900;letter-spacing:1px}
+    nav a{color:white;margin-left:26px;font-size:15px;font-weight:600}
+    nav a:hover{color:#d4af37}
+
+    .hero{
+      min-height:92vh;
+      background:
+      linear-gradient(90deg,rgba(3,17,31,.94),rgba(6,26,45,.78),rgba(6,26,45,.45)),
+      url('https://images.unsplash.com/photo-1577435953911-3f70c2383128?auto=format&fit=crop&w=1800&q=80');
+      background-size:cover;background-position:center;
+      display:flex;align-items:center;padding:0 7%;color:white;
     }
+    .hero-box{max-width:780px}
+    .tag{display:inline-block;border:1px solid rgba(212,175,55,.5);color:#d4af37;padding:9px 18px;border-radius:50px;margin-bottom:22px;background:rgba(212,175,55,.08)}
+    .hero h1{font-size:64px;line-height:1.05;margin-bottom:22px}
+    .hero h1 span{color:#d4af37}
+    .hero p{font-size:19px;line-height:1.8;color:#e3edf5;margin-bottom:34px}
+    .btn{display:inline-block;background:#d4af37;color:#061a2d;padding:15px 28px;border-radius:50px;font-weight:800;margin-right:12px}
+    .btn.dark{background:#061a2d;color:white;border:1px solid rgba(255,255,255,.25)}
+    .btn:hover{transform:translateY(-2px)}
 
-    body {
-      background: #f4f7fa;
-      color: #0b1f33;
+    section{padding:90px 7%}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:-70px;position:relative;z-index:5}
+    .stat{background:white;padding:34px;border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.09);text-align:center;border-bottom:4px solid #d4af37}
+    .stat h3{font-size:36px;color:#061a2d}
+    .stat p{color:#5b6f80;margin-top:8px}
+
+    .title{text-align:center;max-width:760px;margin:0 auto 55px}
+    .title span{color:#d4af37;font-weight:800;letter-spacing:2px;font-size:13px}
+    .title h2{font-size:42px;color:#061a2d;margin:12px 0}
+    .title p{color:#617789;line-height:1.7}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .card{background:white;border-radius:24px;padding:34px;box-shadow:0 18px 45px rgba(0,0,0,.07);border:1px solid #edf1f5;transition:.3s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 25px 55px rgba(0,0,0,.11)}
+    .icon{width:54px;height:54px;border-radius:16px;background:#061a2d;color:#d4af37;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px}
+    .card h3{font-size:24px;color:#061a2d;margin-bottom:14px}
+    .card p{color:#5b6f80;line-height:1.7;margin-bottom:18px}
+    .card a{color:#0a4d68;font-weight:800}
+
+    .about{background:#061a2d;color:white;display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .about h2{font-size:44px;line-height:1.15;margin-bottom:22px}
+    .about h2 span{color:#d4af37}
+    .about p{color:#dce8f3;line-height:1.85;margin-bottom:18px}
+    .about-panel{background:rgba(255,255,255,.08);padding:36px;border-radius:24px;border:1px solid rgba(255,255,255,.14)}
+    .about-panel li{list-style:none;margin:16px 0;color:#e9f1f8}
+
+    .courses{background:#eef4f8}
+    .course-card{position:relative;overflow:hidden}
+    .badge{display:inline-block;background:#f2e6b8;color:#061a2d;padding:7px 14px;border-radius:50px;font-size:13px;font-weight:800;margin-bottom:15px}
+
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .step{background:#061a2d;color:white;padding:30px;border-radius:22px}
+    .step b{color:#d4af37;font-size:28px}
+    .step h3{margin:18px 0 10px}
+    .step p{color:#dce8f3;line-height:1.6}
+
+    .verify{
+      background:linear-gradient(135deg,#0a4d68,#061a2d);
+      color:white;border-radius:35px;margin:0 7%;padding:65px;
+      display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center
     }
+    .verify h2{font-size:40px;margin-bottom:15px}
+    .verify p{color:#e6eef5;line-height:1.7}
+    .verify-box{background:white;padding:30px;border-radius:24px}
+    .verify-box input{width:100%;padding:15px;border:1px solid #dce4ea;border-radius:12px;margin-bottom:12px}
+    .verify-box button{width:100%;border:0;background:#d4af37;padding:15px;border-radius:12px;font-weight:900;color:#061a2d}
 
-    header {
-      background: #061a2d;
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    .contact{background:#03111f;color:white}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+    .contact h2{font-size:40px;margin-bottom:18px}
+    .contact p{color:#dce8f3;line-height:1.8;margin-bottom:14px}
+    form{background:white;padding:34px;border-radius:24px}
+    form input,form textarea{width:100%;padding:15px;margin-bottom:14px;border:1px solid #dce4ea;border-radius:12px}
+    form button{background:#d4af37;color:#061a2d;border:0;padding:15px 26px;border-radius:50px;font-weight:900}
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #d4af37;
-    }
+    footer{background:#010912;color:#c9d6e2;text-align:center;padding:32px 7%}
+    .whatsapp{position:fixed;right:22px;bottom:22px;background:#25d366;color:white;padding:14px 20px;border-radius:50px;font-weight:900;z-index:999}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 15px;
-    }
-
-    .hero {
-      min-height: 90vh;
-      background: linear-gradient(rgba(6,26,45,.85), rgba(6,26,45,.85)),
-      url('https://images.unsplash.com/photo-1568219656418-15c329312bf1?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      padding: 0 8%;
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 750px;
-    }
-
-    .hero h1 {
-      font-size: 58px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: #d4af37;
-    }
-
-    .hero p {
-      font-size: 19px;
-      line-height: 1.7;
-      margin-bottom: 35px;
-      color: #e6eef5;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #d4af37;
-      color: #061a2d;
-      padding: 15px 28px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 700;
-      margin-right: 12px;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-    }
-
-    section {
-      padding: 80px 8%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 40px;
-      color: #061a2d;
-    }
-
-    .section-title p {
-      margin-top: 12px;
-      color: #52677a;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-      margin-top: -60px;
-      position: relative;
-      z-index: 5;
-    }
-
-    .stat-card {
-      background: white;
-      padding: 35px;
-      text-align: center;
-      border-radius: 18px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.08);
-    }
-
-    .stat-card h3 {
-      font-size: 34px;
-      color: #d4af37;
-    }
-
-    .stat-card p {
-      margin-top: 8px;
-      color: #52677a;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: 0 15px 35px rgba(0,0,0,.07);
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .card h3 {
-      color: #061a2d;
-      margin-bottom: 15px;
-      font-size: 24px;
-    }
-
-    .card p {
-      color: #52677a;
-      line-height: 1.7;
-    }
-
-    .about {
-      background: #061a2d;
-      color: white;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about h2 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    .about h2 span {
-      color: #d4af37;
-    }
-
-    .about p {
-      color: #dce7f0;
-      line-height: 1.8;
-      margin-bottom: 18px;
-    }
-
-    .about-box {
-      background: rgba(255,255,255,.08);
-      padding: 35px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.15);
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #0a4d68, #061a2d);
-      color: white;
-      text-align: center;
-      border-radius: 0;
-    }
-
-    .cta h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      margin-bottom: 30px;
-      color: #e6eef5;
-    }
-
-    footer {
-      background: #020b14;
-      color: white;
-      padding: 35px 8%;
-      text-align: center;
-    }
-
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      background: #25d366;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      z-index: 999;
-    }
-
-    @media(max-width: 900px) {
-      nav {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .stats,
-      .cards,
-      .about {
-        grid-template-columns: 1fr;
-      }
+    @media(max-width:900px){
+      .topbar{display:none}
+      nav{display:none}
+      .hero h1{font-size:40px}
+      .stats,.grid3,.about,.process,.verify,.contact-grid{grid-template-columns:1fr}
+      .verify{margin:0;padding:55px 7%;border-radius:0}
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">SAGAR OFFSHORE</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#about">About</a>
-      <a href="#courses">Courses</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<div class="topbar">
+  <div>📍 Maritime Training • Offshore Safety • Crew Management</div>
+  <div>📞 +91 99999 99999 &nbsp; | &nbsp; ✉ info@sagaroffshore.com</div>
+</div>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Global Maritime Training & <span>Offshore Excellence</span></h1>
-      <p>
-        Sagar Offshore Maritime Academy provides professional marine training,
-        offshore safety courses, crew management and documentation support for
-        seafarers and offshore professionals.
-      </p>
-      <a href="#courses" class="btn">Explore Courses</a>
-      <a href="#contact" class="btn btn-outline">Contact Us</a>
+<header>
+  <div class="logo">SAGAR OFFSHORE</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#services">Services</a>
+    <a href="#verify">Verify</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-box">
+    <div class="tag">GLOBAL MARITIME & OFFSHORE TRAINING ACADEMY</div>
+    <h1>Train Smarter. Sail Safer. Grow <span>Globally.</span></h1>
+    <p>
+      Sagar Offshore Maritime Academy delivers professional offshore safety training,
+      maritime certification support, crew management and documentation services for
+      seafarers, offshore workers and marine organizations.
+    </p>
+    <a href="#courses" class="btn">Explore Courses</a>
+    <a href="#contact" class="btn dark">Talk to Expert</a>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><h3>15+</h3><p>Years Experience</p></div>
+  <div class="stat"><h3>5000+</h3><p>Professionals Trained</p></div>
+  <div class="stat"><h3>25+</h3><p>Marine Courses</p></div>
+  <div class="stat"><h3>Global</h3><p>Industry Support</p></div>
+</section>
+
+<section id="services">
+  <div class="title">
+    <span>WHAT WE DO</span>
+    <h2>Premium Maritime & Offshore Services</h2>
+    <p>Complete professional support for training, certification, manning and offshore career growth.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="icon">⚓</div>
+      <h3>Offshore Safety Training</h3>
+      <p>Industry-focused safety courses designed for offshore oil & gas and marine professionals.</p>
+      <a href="#courses">View Courses →</a>
     </div>
-  </section>
-
-  <section class="stats">
-    <div class="stat-card">
-      <h3>15+</h3>
-      <p>Years Experience</p>
+    <div class="card">
+      <div class="icon">👷</div>
+      <h3>Crew Management</h3>
+      <p>Professional manning and crew support services for shipping and offshore companies.</p>
+      <a href="#contact">Get Support →</a>
     </div>
-    <div class="stat-card">
-      <h3>5000+</h3>
-      <p>Professionals Trained</p>
+    <div class="card">
+      <div class="icon">📄</div>
+      <h3>Documentation Support</h3>
+      <p>Marine documentation and Panama certificate support for seafarers and professionals.</p>
+      <a href="#contact">Apply Now →</a>
     </div>
-    <div class="stat-card">
-      <h3>25+</h3>
-      <p>Marine Courses</p>
+  </div>
+</section>
+
+<section class="about">
+  <div>
+    <h2>Building Safer Maritime Careers with <span>Professional Excellence</span></h2>
+    <p>
+      Sagar Offshore Maritime Academy focuses on practical training, safety standards,
+      certification guidance and professional marine career support.
+    </p>
+    <p>
+      We help candidates and companies move forward with confidence through structured
+      courses, verified documentation and reliable offshore industry services.
+    </p>
+    <a href="#contact" class="btn">Start Admission</a>
+  </div>
+
+  <div class="about-panel">
+    <h3>Why Choose Sagar Offshore?</h3>
+    <ul>
+      <li>✔ Professional maritime training environment</li>
+      <li>✔ Offshore safety focused course structure</li>
+      <li>✔ Certificate verification support</li>
+      <li>✔ Crew management and manning assistance</li>
+      <li>✔ Career-focused guidance for seafarers</li>
+    </ul>
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <div class="title">
+    <span>COURSES</span>
+    <h2>Featured Offshore Training Courses</h2>
+    <p>Popular courses for offshore workers, seafarers and marine industry professionals.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="card course-card">
+      <div class="badge">Safety Training</div>
+      <h3>BOSIET</h3>
+      <p>Basic Offshore Safety Induction and Emergency Training for offshore professionals.</p>
+      <a href="#contact">Enroll Now →</a>
     </div>
-    <div class="stat-card">
-      <h3>Global</h3>
-      <p>Industry Support</p>
-    </div>
-  </section>
 
-  <section id="courses">
-    <div class="section-title">
-      <h2>Featured Offshore Courses</h2>
-      <p>Professional training programs for maritime and offshore careers.</p>
+    <div class="card course-card">
+      <div class="badge">Emergency Training</div>
+      <h3>HUET</h3>
+      <p>Helicopter Underwater Escape Training for offshore emergency preparedness.</p>
+      <a href="#contact">Enroll Now →</a>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>BOSIET Training</h3>
-        <p>Basic Offshore Safety Induction and Emergency Training for offshore oil and gas professionals.</p>
-      </div>
-
-      <div class="card">
-        <h3>HUET Course</h3>
-        <p>Helicopter Underwater Escape Training designed for emergency offshore situations.</p>
-      </div>
-
-      <div class="card">
-        <h3>FRB Training</h3>
-        <p>Fast Rescue Boat training for marine safety, emergency response and rescue operations.</p>
-      </div>
-
-      <div class="card">
-        <h3>RSOC</h3>
-        <p>Rig Safety Officer Course for offshore safety supervision and compliance management.</p>
-      </div>
-
-      <div class="card">
-        <h3>OERTL</h3>
-        <p>Offshore Emergency Response Team Leader training for emergency command and control.</p>
-      </div>
-
-      <div class="card">
-        <h3>HERTL</h3>
-        <p>Helideck Emergency Response Team Leader course for offshore helideck safety.</p>
-      </div>
+    <div class="card course-card">
+      <div class="badge">Rescue Training</div>
+      <h3>FRB</h3>
+      <p>Fast Rescue Boat training for marine safety and rescue operation readiness.</p>
+      <a href="#contact">Enroll Now →</a>
     </div>
-  </section>
 
-  <section class="about" id="about">
+    <div class="card course-card">
+      <div class="badge">Officer Course</div>
+      <h3>RSOC</h3>
+      <p>Rig Safety Officer Course for offshore safety supervision and compliance.</p>
+      <a href="#contact">Enroll Now →</a>
+    </div>
+
+    <div class="card course-card">
+      <div class="badge">Leadership</div>
+      <h3>OERTL</h3>
+      <p>Offshore Emergency Response Team Leader course for emergency command skills.</p>
+      <a href="#contact">Enroll Now →</a>
+    </div>
+
+    <div class="card course-card">
+      <div class="badge">Helideck Safety</div>
+      <h3>HERTL</h3>
+      <p>Helideck Emergency Response Team Leader training for offshore helideck operations.</p>
+      <a href="#contact">Enroll Now →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="title">
+    <span>PROCESS</span>
+    <h2>Simple Admission Process</h2>
+    <p>From course inquiry to certification, the process is clean, professional and guided.</p>
+  </div>
+
+  <div class="process">
+    <div class="step"><b>01</b><h3>Inquiry</h3><p>Contact our team and select your required course or service.</p></div>
+    <div class="step"><b>02</b><h3>Guidance</h3><p>Get eligibility, documents and schedule details from our experts.</p></div>
+    <div class="step"><b>03</b><h3>Training</h3><p>Complete professional training with safety-focused learning.</p></div>
+    <div class="step"><b>04</b><h3>Certification</h3><p>Receive certification and verification support after completion.</p></div>
+  </div>
+</section>
+
+<section class="verify" id="verify">
+  <div>
+    <h2>Certificate Verification</h2>
+    <p>
+      Verify candidate certificates digitally using certificate number and date of birth.
+      This section can later connect with your WordPress/plugin verification system.
+    </p>
+  </div>
+
+  <div class="verify-box">
+    <input type="text" placeholder="Certificate Number">
+    <input type="date">
+    <button>Verify Certificate</button>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-grid">
     <div>
-      <h2>Building Safer Careers in the <span>Maritime Industry</span></h2>
-      <p>
-        Sagar Offshore Maritime Academy is committed to delivering high-quality
-        offshore and marine training with a strong focus on safety, compliance
-        and professional development.
-      </p>
-      <p>
-        Our services support seafarers, offshore workers, shipping companies and
-        marine organizations with training, documentation and crew solutions.
-      </p>
-      <a href="#contact" class="btn">Get Consultation</a>
+      <h2>Contact Sagar Offshore Maritime Academy</h2>
+      <p>For course admission, crew management, documentation support or certificate verification, contact our team.</p>
+      <p>📞 Phone: +91 99999 99999</p>
+      <p>✉ Email: info@sagaroffshore.com</p>
+      <p>🌐 Website: www.sagaroffshore.com</p>
     </div>
 
-    <div class="about-box">
-      <h3>Our Core Services</h3>
-      <br>
-      <p>✔ Offshore Safety Training</p>
-      <p>✔ Maritime Certification Support</p>
-      <p>✔ Crew Management</p>
-      <p>✔ Panama Documentation</p>
-      <p>✔ Marine Career Guidance</p>
-    </div>
-  </section>
+    <form>
+      <input type="text" placeholder="Your Name">
+      <input type="tel" placeholder="Phone Number">
+      <input type="email" placeholder="Email Address">
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="button">Submit Inquiry</button>
+    </form>
+  </div>
+</section>
 
-  <section id="services">
-    <div class="section-title">
-      <h2>Marine & Offshore Services</h2>
-      <p>Complete support for maritime professionals and companies.</p>
-    </div>
+<footer>
+  <p>© 2026 Sagar Offshore Maritime Academy. All Rights Reserved.</p>
+  <p>Designed with premium maritime brand experience.</p>
+</footer>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Crew Management</h3>
-        <p>Professional crew recruitment, manning support and workforce solutions for marine companies.</p>
-      </div>
-
-      <div class="card">
-        <h3>Panama Documentation</h3>
-        <p>Documentation assistance for seafarers and marine professionals requiring Panama support.</p>
-      </div>
-
-      <div class="card">
-        <h3>Certificate Verification</h3>
-        <p>Digital certificate verification support for students, companies and maritime authorities.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta" id="contact">
-    <h2>Start Your Maritime Career With Confidence</h2>
-    <p>Contact Sagar Offshore Maritime Academy for course admission, documentation and crew support.</p>
-    <a href="tel:+919999999999" class="btn">Call Now</a>
-    <a href="mailto:info@sagaroffshore.com" class="btn btn-outline">Send Email</a>
-  </section>
-
-  <footer>
-    <p>© 2026 Sagar Offshore Maritime Academy. All Rights Reserved.</p>
-  </footer>
-
-  <a class="whatsapp" href="https://wa.me/919999999999" target="_blank">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/919999999999" target="_blank">WhatsApp</a>
 
 </body>
 </html>
